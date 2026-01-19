@@ -1,0 +1,97 @@
+---
+title: "Tibble tutorial"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+runtime: shiny_prerendered
+description: >
+  Tutorial covering the tibble 
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(tidyverse)
+library(mgrtibbles)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Tibbles
+
+### Overview
+
+A __tibble__ (`tbl`) is a reimagining of the __data.frame__ (`df`) object. They are described as __data.frames__ that are:
+
+- __Lazy__: They don’t change variable names and they partial matching does not work.
+- __Surly__: They complain more such as when a variable does not exist.
+
+One important note is that __tibbles__ don’t have row names.
+
+Although __tibbles__ have advantages compared to __data.frames__ they are not always more suited to the task than __data.frames__. 
+However, __tibbles__ are generally always preferred over __data.frames__ when using __tidyverse__ packages.
+
+### Tibble example
+
+Run the below code for an example of:
+
+- Creating a basic tibble
+- Printing the tibble
+
+```{r tbl-example, exercise=TRUE, exercise.eval=FALSE}
+#Create a tibble
+tbl <- tibble::tibble(Day = c("Mon", "Tue", "Wed"),
+              Hawks = c(3,7,2),
+              Pigeons = c(52,21,61),
+              Starlings = c(1,2,1))
+#Print tibble
+tbl
+```
+
+###
+
+Other text
+
+###
+
+Next piece
+
+## Topic 2
+
+### Exercise with Hint
+
+*Here's an exercise where the chunk is pre-evaluated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
+
+Modify the following code to limit the number of rows printed to 5:
+
+```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
+mtcars
+```
+
+```{r print-limit-hint}
+head(mtcars)
+```
+
+### Quiz
+
+*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
+
+Some questions to verify that you understand the purposes of various base and recommended R packages:
+
+```{r quiz}
+quiz(
+  question("Which package contains functions for installing other R packages?",
+    answer("base"),
+    answer("tools"),
+    answer("utils", correct = TRUE),
+    answer("codetools")
+  ),
+  question("Which of the R packages listed below are used to create plots?",
+    answer("lattice", correct = TRUE),
+    answer("tools"),
+    answer("stats"),
+    answer("grid", correct = TRUE)
+  )
+)
+```
+

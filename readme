@@ -35,6 +35,7 @@ install()
 
 
 #To run and use package
+#Ensure r shiny is up to date as well
 install.packages("remotes")
 library(remotes)
 
@@ -43,3 +44,8 @@ library(mgtidyverselearnr)
 
 library("learnr")
 learnr::run_tutorial("mg_tutorial", package = "mgtidyverselearnr")
+
+
+
+#To see all available tutorials run the below
+learnr::run_tutorial()

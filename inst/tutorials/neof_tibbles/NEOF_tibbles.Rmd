@@ -4,6 +4,7 @@ output:
   learnr::tutorial:
     progressive: true
     allow_skip: true
+    css: css/style.scss
 runtime: shiny_prerendered
 description: >
   Tutorial covering the tibble 
@@ -18,6 +19,18 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 ## Tibbles
+
+<center>
+![](./images/tibble.png){style="width:150px"}
+</center>
+
+This tutorial covers tibbles and contains the following sections:
+
+- __Overview:__ The what and why of tibbles.
+- __Creating tibbles:__ Commands to create tibbles.
+
+
+[NEOF Tidyverse website reference](https://neof-workshops.github.io/Tidyverse/tibble/tibble.html)
 
 ### Overview
 
@@ -48,50 +61,104 @@ tbl <- tibble::tibble(Day = c("Mon", "Tue", "Wed"),
 tbl
 ```
 
-###
+## Creating tibbles
 
-Other text
+<center>
+![](images/tibble_create.png){style="width:200px"}
+</center>
 
-###
+There are various ways to create __tibbles__. 
+Below are three methods:
 
-Next piece
+- Creating a new __tibble__ via code
+- Coercing a __data.frame__ into a __tibble__
+- Reading in a file as a __tibble__
 
-## Topic 2
+In this section you will be given instructions to create tibbles.
+You will need to use the pre made code and the guidance on the [creating tibbles webpage](https://neof-workshops.github.io/Tidyverse/tibble/creating_tibbles.html) to carry out the exercises.
 
-### Exercise with Hint
+### Code to tibble
 
-*Here's an exercise where the chunk is pre-evaluated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
+Create and display the below tibble:
 
-Modify the following code to limit the number of rows printed to 5:
+```{r code-to-tbl-tbl}
+#Vectors to be used as columns
+Month <- c("January", "February", "March")
+Emperor <- c(219738, 207639, 198745)
+King <- c(2245928,2131628,2086237)
+Gentoo <- c(307582, 301583, 299710)
 
-```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
-mtcars
+#Create a tibble
+tbl <- tibble::tibble(Month, Emperor, King, Gentoo)
+#Print tibble
+tbl
 ```
 
-```{r print-limit-hint}
-head(mtcars)
+by completing the below code:
+
+```{r code-to-tbl-exercise, exercise=TRUE, exercise.eval=FALSE}
+#Vectors
+Month <- c("January", "February", "March")
+Emperor <- c(219738, 207639, 198745)
+King <- c(2245928,2131628,2086237)
+Gentoo <- c(307582, 301583, 299710)
+```
+
+### data.frame to tibble
+
+Next is converting a __data.frame__ to a __tibble__.
+
+```{r df-to-tbl-df, echo=TRUE}
+df <- trees
+str(df)
+df
+```
+
+Complete the below code by convert the __data.frame__ (`trees`) into a __tibble__ and displaying its structure and the __tibble__.
+
+```{r df-to-tbl-exercise, exercise=TRUE, exercise.eval=FALSE}
+tbl <- 
+str(tbl)
+tbl
 ```
 
 ### Quiz
 
-*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
+Super!
+Please attempt the below MCQs (Multiple choice questions) to solidify your learning.
 
-Some questions to verify that you understand the purposes of various base and recommended R packages:
-
-```{r quiz}
-quiz(
-  question("Which package contains functions for installing other R packages?",
-    answer("base"),
-    answer("tools"),
-    answer("utils", correct = TRUE),
-    answer("codetools")
-  ),
-  question("Which of the R packages listed below are used to create plots?",
-    answer("lattice", correct = TRUE),
-    answer("tools"),
-    answer("stats"),
-    answer("grid", correct = TRUE)
-  )
+```{r create-tbl-mcq-1, echo=FALSE}
+question("When creating a tibble from vectors, what do the vectors become?",
+  answer("Columns", correct = TRUE),
+  answer("Rows"),
+  answer("Row names"),
+  allow_retry = TRUE
 )
 ```
 
+```{r create-tbl-mcq-2, echo=FALSE}
+question("What do tibbles not have?",
+  answer("Columns"),
+  answer("Rows"),
+  answer("Row names", correct = TRUE),
+  allow_retry = TRUE
+)
+```
+
+```{r create-tbl-mcq-3, echo=FALSE}
+question("What function can be used to create a tibble from vectors?",
+  answer("`tibble::as_tibble()`"),
+  answer("`tibble::read_csv()`"),
+  answer("`tibble::tibble()`", correct = TRUE),
+  allow_retry = TRUE
+)
+```
+
+```{r create-tbl-mcq-4, echo=FALSE}
+question("What function can be used to convert a data.frame to a tibble?",
+  answer("`tibble::as_tibble()`", correct = TRUE),
+  answer("`tibble::read_csv()`"),
+  answer("`tibble::tibble()`"),
+  allow_retry = TRUE
+)
+```

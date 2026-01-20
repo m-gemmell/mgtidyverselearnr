@@ -30,3 +30,14 @@ h1, h2, h3, h4, h5, h6 {
 monofont {
   font-family: "Fira+Mono";
 }
+
+// css
+
+/* Main part */
+.topics {
+  width: 100%;
+}
+/* sidebar */
+.topicsList .topic {
+  padding-left: 0px;
+}
